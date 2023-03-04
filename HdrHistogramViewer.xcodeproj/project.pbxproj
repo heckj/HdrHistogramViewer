@@ -16,6 +16,7 @@
 		1A05E84F29B3DB2C00A05469 /* HdrHistogramViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05E84E29B3DB2C00A05469 /* HdrHistogramViewerUITests.swift */; };
 		1A05E85129B3DB2C00A05469 /* HdrHistogramViewerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05E85029B3DB2C00A05469 /* HdrHistogramViewerUITestsLaunchTests.swift */; };
 		1A05E85F29B3DBE500A05469 /* Histogram in Frameworks */ = {isa = PBXBuildFile; productRef = 1A05E85E29B3DBE500A05469 /* Histogram */; };
+		1A05E86229B3DFB100A05469 /* ExtrasJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 1A05E86129B3DFB100A05469 /* ExtrasJSON */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A05E85F29B3DBE500A05469 /* Histogram in Frameworks */,
+				1A05E86229B3DFB100A05469 /* ExtrasJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +156,7 @@
 			name = HdrHistogramViewer;
 			packageProductDependencies = (
 				1A05E85E29B3DBE500A05469 /* Histogram */,
+				1A05E86129B3DFB100A05469 /* ExtrasJSON */,
 			);
 			productName = HdrHistogramViewer;
 			productReference = 1A05E82C29B3DB2B00A05469 /* HdrHistogramViewer.app */;
@@ -229,6 +232,7 @@
 			mainGroup = 1A05E82329B3DB2A00A05469;
 			packageReferences = (
 				1A05E85D29B3DBE500A05469 /* XCRemoteSwiftPackageReference "package-histogram" */,
+				1A05E86029B3DFB100A05469 /* XCRemoteSwiftPackageReference "swift-extras-json" */,
 			);
 			productRefGroup = 1A05E82D29B3DB2B00A05469 /* Products */;
 			projectDirPath = "";
@@ -642,6 +646,14 @@
 				minimumVersion = 0.1.1;
 			};
 		};
+		1A05E86029B3DFB100A05469 /* XCRemoteSwiftPackageReference "swift-extras-json" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swift-extras/swift-extras-json";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -649,6 +661,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1A05E85D29B3DBE500A05469 /* XCRemoteSwiftPackageReference "package-histogram" */;
 			productName = Histogram;
+		};
+		1A05E86129B3DFB100A05469 /* ExtrasJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A05E86029B3DFB100A05469 /* XCRemoteSwiftPackageReference "swift-extras-json" */;
+			productName = ExtrasJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

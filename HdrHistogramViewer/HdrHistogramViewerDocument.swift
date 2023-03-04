@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
+import ExtrasJSON
 import Histogram
 
 extension UTType {
@@ -16,25 +17,27 @@ extension UTType {
 }
 
 struct HdrHistogramViewerDocument: FileDocument {
-    var text: String
-
-    init(text: String = "Hello, world!") {
-        self.text = text
+    var histogram: Histogram<UInt>
+    let decoder = XJSONDecoder()
+    let encoder = XJSONEncoder()
+    
+    init(histogram: Histogram<UInt> = Histogram<UInt>(highestTrackableValue: 3_000_000_000)) {
+        self.histogram = histogram
     }
 
-    static var readableContentTypes: [UTType] { [.encodedHistogram] }
+    static var readableContentTypes: [UTType] { [.encodedHistogram, .json] }
 
     init(configuration: ReadConfiguration) throws {
-        guard let data = configuration.file.regularFileContents,
-              let string = String(data: data, encoding: .utf8)
+        
+        guard let data = configuration.file.regularFileContents
         else {
             throw CocoaError(.fileReadCorruptFile)
         }
-        text = string
+        self.histogram = try decoder.decode(Histogram.self, from: data)
     }
     
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
-        let data = text.data(using: .utf8)!
-        return .init(regularFileWithContents: data)
+        let data = try encoder.encode(histogram)
+        return .init(regularFileWithContents: Data(data))
     }
 }

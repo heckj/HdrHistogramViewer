@@ -11,7 +11,8 @@ struct ContentView: View {
     @Binding var document: HdrHistogramViewerDocument
 
     var body: some View {
-        TextEditor(text: $document.text)
+        Text("Example Viewer Placeholder")
+//        TextEditor(text: $document.text)
     }
 }
 
