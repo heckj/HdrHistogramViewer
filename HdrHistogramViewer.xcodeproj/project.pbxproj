@@ -15,6 +15,7 @@
 		1A05E84529B3DB2C00A05469 /* HdrHistogramViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05E84429B3DB2C00A05469 /* HdrHistogramViewerTests.swift */; };
 		1A05E84F29B3DB2C00A05469 /* HdrHistogramViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05E84E29B3DB2C00A05469 /* HdrHistogramViewerUITests.swift */; };
 		1A05E85129B3DB2C00A05469 /* HdrHistogramViewerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05E85029B3DB2C00A05469 /* HdrHistogramViewerUITestsLaunchTests.swift */; };
+		1A05E85F29B3DBE500A05469 /* Histogram in Frameworks */ = {isa = PBXBuildFile; productRef = 1A05E85E29B3DBE500A05469 /* Histogram */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A05E85F29B3DBE500A05469 /* Histogram in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +152,9 @@
 			dependencies = (
 			);
 			name = HdrHistogramViewer;
+			packageProductDependencies = (
+				1A05E85E29B3DBE500A05469 /* Histogram */,
+			);
 			productName = HdrHistogramViewer;
 			productReference = 1A05E82C29B3DB2B00A05469 /* HdrHistogramViewer.app */;
 			productType = "com.apple.product-type.application";
@@ -222,6 +227,9 @@
 				Base,
 			);
 			mainGroup = 1A05E82329B3DB2A00A05469;
+			packageReferences = (
+				1A05E85D29B3DBE500A05469 /* XCRemoteSwiftPackageReference "package-histogram" */,
+			);
 			productRefGroup = 1A05E82D29B3DB2B00A05469 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -624,6 +632,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1A05E85D29B3DBE500A05469 /* XCRemoteSwiftPackageReference "package-histogram" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ordo-one/package-histogram";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1A05E85E29B3DBE500A05469 /* Histogram */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A05E85D29B3DBE500A05469 /* XCRemoteSwiftPackageReference "package-histogram" */;
+			productName = Histogram;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1A05E82429B3DB2A00A05469 /* Project object */;
 }

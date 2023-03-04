@@ -7,10 +7,11 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
+import Histogram
 
 extension UTType {
-    static var exampleText: UTType {
-        UTType(importedAs: "com.example.plain-text")
+    static var encodedHistogram: UTType {
+        UTType(importedAs: "com.github.ordo-one.encodedHistogram")
     }
 }
 
@@ -21,7 +22,7 @@ struct HdrHistogramViewerDocument: FileDocument {
         self.text = text
     }
 
-    static var readableContentTypes: [UTType] { [.exampleText] }
+    static var readableContentTypes: [UTType] { [.encodedHistogram] }
 
     init(configuration: ReadConfiguration) throws {
         guard let data = configuration.file.regularFileContents,
