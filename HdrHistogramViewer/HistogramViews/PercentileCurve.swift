@@ -16,10 +16,15 @@ extension RangeReplaceableCollection where Element: Hashable {
   }
 }
 
-struct LocalIterationValue: Hashable {
+struct LocalIterationValue: Hashable, Identifiable {
     let count: UInt
     let value: UInt64
     let percentile: Double
+    
+    // Identifiable conformance
+    var id: Double {
+        self.percentile
+    }
     
     init(count: UInt, value: UInt64, percentile: Double) {
         self.count = count
@@ -52,12 +57,33 @@ struct PercentileCurve: View {
         }
     }
     
-    var linearBuckets: [Histogram<UInt>.IterationValue] {
-        return Array(histogram.linearBucketValues(valueUnitsPerBucket: 1))
+    var linearBuckets: [LocalIterationValue] {
+        histogram.linearBucketValues(valueUnitsPerBucket: 1)
+            .map { LocalIterationValue(from: $0) }
     }
+    
+//    Chart {
+//                ForEach(stats, id: \.city) { stat in
+//                    BarMark(
+//                        x: .value("City", stat.city),
+//                        y: .value("Population", stat.population)
+//                    )
+//                }
+//            }
     
     var body: some View {
         HStack {
+            VStack {
+              Text("Histogram Distribution")
+                Chart {
+                    ForEach(self.linearBuckets) { stat in
+                        BarMark(
+                            x: .value("Value", stat.value),
+                            y: .value("Count", stat.count)
+                        )
+                    }
+                }.frame(maxHeight: 100)
+            }
             VStack {
                 ForEach(self.linearBuckets, id: \.value) { iterValue in
                     Text("value: \(iterValue.value) #: \(iterValue.count)")
@@ -71,12 +97,22 @@ struct PercentileCurve: View {
                 }
             }
             VStack {
-                Text("\(String(describing: histogram.min...histogram.max))")
-                Text("percentileArray count: \(self.percentileArray.count)")
-                ForEach(self.percentileArray, id: \.0) { tuple in
-                    Text("%tile: \(tuple.0) => \(tuple.1) ")
+                Text("Recorded value \(String(describing: histogram.min...histogram.max)) at percentile of distribution")
+                Chart {
+                    ForEach(self.percentileArray, id: \.0) { stat in
+                        LineMark(
+                            x: .value("percentile", stat.0),
+                            y: .value("value", stat.1)
+                        )
+                    }
                 }
+                .frame(maxHeight: 100)
             }
+//            VStack {
+//                ForEach(self.percentileArray, id: \.0) { tuple in
+//                    Text("%tile: \(tuple.0) => \(tuple.1) ")
+//                }
+//            }
 
         }
     }
