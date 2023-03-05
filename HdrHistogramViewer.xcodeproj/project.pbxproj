@@ -20,8 +20,9 @@
 		1A60C2C129B416D0000B832F /* DistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60C2C029B416D0000B832F /* DistributionView.swift */; };
 		1A60C2C329B416E5000B832F /* LocalIterationValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60C2C229B416E5000B832F /* LocalIterationValue.swift */; };
 		1A60C2C529B4191C000B832F /* CountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60C2C429B4191C000B832F /* CountsView.swift */; };
-		1A60C2C729B41B7B000B832F /* NinesPercentileCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60C2C629B41B7B000B832F /* NinesPercentileCurve.swift */; };
+		1A60C2C729B41B7B000B832F /* InvertedPercentileCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60C2C629B41B7B000B832F /* InvertedPercentileCurve.swift */; };
 		1AA019C329B3FFF100B0BA19 /* OverallPercentileCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA019C229B3FFF100B0BA19 /* OverallPercentileCurve.swift */; };
+		1AB6476C29B54CFD003BEF90 /* CrashExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB6476B29B54CFD003BEF90 /* CrashExample.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +59,9 @@
 		1A60C2C029B416D0000B832F /* DistributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionView.swift; sourceTree = "<group>"; };
 		1A60C2C229B416E5000B832F /* LocalIterationValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalIterationValue.swift; sourceTree = "<group>"; };
 		1A60C2C429B4191C000B832F /* CountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountsView.swift; sourceTree = "<group>"; };
-		1A60C2C629B41B7B000B832F /* NinesPercentileCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NinesPercentileCurve.swift; sourceTree = "<group>"; };
+		1A60C2C629B41B7B000B832F /* InvertedPercentileCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertedPercentileCurve.swift; sourceTree = "<group>"; };
 		1AA019C229B3FFF100B0BA19 /* OverallPercentileCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallPercentileCurve.swift; sourceTree = "<group>"; };
+		1AB6476B29B54CFD003BEF90 /* CrashExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashExample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +158,8 @@
 				1A60C2C029B416D0000B832F /* DistributionView.swift */,
 				1A60C2C229B416E5000B832F /* LocalIterationValue.swift */,
 				1A60C2C429B4191C000B832F /* CountsView.swift */,
-				1A60C2C629B41B7B000B832F /* NinesPercentileCurve.swift */,
+				1A60C2C629B41B7B000B832F /* InvertedPercentileCurve.swift */,
+				1AB6476B29B54CFD003BEF90 /* CrashExample.swift */,
 			);
 			path = HistogramViews;
 			sourceTree = "<group>";
@@ -301,9 +304,10 @@
 			files = (
 				1AA019C329B3FFF100B0BA19 /* OverallPercentileCurve.swift in Sources */,
 				1A60C2C529B4191C000B832F /* CountsView.swift in Sources */,
-				1A60C2C729B41B7B000B832F /* NinesPercentileCurve.swift in Sources */,
+				1A60C2C729B41B7B000B832F /* InvertedPercentileCurve.swift in Sources */,
 				1A60C2C329B416E5000B832F /* LocalIterationValue.swift in Sources */,
 				1A05E83229B3DB2B00A05469 /* HdrHistogramViewerDocument.swift in Sources */,
+				1AB6476C29B54CFD003BEF90 /* CrashExample.swift in Sources */,
 				1A60C2C129B416D0000B832F /* DistributionView.swift in Sources */,
 				1A05E83029B3DB2B00A05469 /* HdrHistogramViewerApp.swift in Sources */,
 				1A05E83429B3DB2B00A05469 /* ContentView.swift in Sources */,

@@ -33,7 +33,7 @@
 				<key>public.filename-extension</key>
 				<array>
 					<string>.encodedHistogram</string>
-                    <string>.json</string>
+					<string>.json</string>
 				</array>
 			</dict>
 		</dict>

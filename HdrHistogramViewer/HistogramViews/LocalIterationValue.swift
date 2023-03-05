@@ -11,6 +11,9 @@ struct LocalIterationValue: Hashable, Identifiable {
     let count: UInt
     let value: UInt64
     let percentile: Double
+    var oneMinusPercentile: Double {
+        1.0 - percentile/100.0
+    }
     
     // Identifiable conformance
     var id: Double {
@@ -53,15 +56,15 @@ struct Converter {
         }
     }
 
-    static func percentileArrayOnNines(_ hist: Histogram<UInt>) -> [(Double,UInt64)] {
+    static func invertedPercentileArray(_ hist: Histogram<UInt>) -> [(Double,UInt64)] {
         [1.0, 50.0, 90.0, 99.0, 99.9, 99.99, 99.999]
         .map { ptile in
+            let invertedPercentile = 1.0 - ptile/100.0
             let value = hist.valueAtPercentile(ptile)
-            return (ptile, value)
+            return (invertedPercentile, value)
         }
     }
 
-    
     static func linearBuckets(_ hist: Histogram<UInt>) -> [LocalIterationValue] {
         hist.linearBucketValues(valueUnitsPerBucket: 1)
             .map { LocalIterationValue(from: $0) }

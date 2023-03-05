@@ -9,15 +9,14 @@ import Histogram
 import SwiftUI
 import Charts
 
-@available(macOS 13.3, *)
-struct NinesPercentileCurve: View {
+struct InvertedPercentileCurve: View {
     var histogram: Histogram<UInt>
     
     var body: some View {
         VStack {
             Text("Recorded value \(String(describing: histogram.min...histogram.max)) at percentile of distribution")
             Chart {
-                ForEach(Converter.percentileArrayOnNines(histogram), id: \.0) { stat in
+                ForEach(Converter.invertedPercentileArray(histogram), id: \.0) { stat in
                     LineMark(
                         x: .value("percentile", stat.0),
                         y: .value("value", stat.1)
@@ -26,10 +25,22 @@ struct NinesPercentileCurve: View {
                     .interpolationMethod(.monotone)
                 }
             }
-            .chartXScale(type: .linear)
+            .chartXScale(
+                domain: .automatic(includesZero: false, reversed: true)
+            )
             .chartXAxis {
-                AxisMarks(values: Converter.percentileArrayOnNines(histogram).map{ $0.0 }
-                )
+                AxisMarks(values: Converter.invertedPercentileArray(histogram).map{ $0.0 }
+                ) { value in
+                    AxisGridLine()
+//                    AxisTick(centered: true,
+//                             stroke: StrokeStyle(lineWidth: 2))
+//                    .foregroundStyle(Color.red)
+                    AxisValueLabel {
+                        if let invertedPercentile = value.as(Double.self) {
+                            Text("\((1 - invertedPercentile)*100)")
+                        }
+                    }
+                }
             }
             
             .frame(maxWidth: 400, maxHeight: 200)
@@ -38,8 +49,7 @@ struct NinesPercentileCurve: View {
     }
 }
 
-@available(macOS 13.3, *)
-struct NinesPercentileCurve_Previews: PreviewProvider {
+struct InvertedPercentileCurve_Previews: PreviewProvider {
     static var sampleHistogram: Histogram<UInt> {
         var h = Histogram<UInt>(numberOfSignificantValueDigits: .three)
         h.record(5)
@@ -53,7 +63,7 @@ struct NinesPercentileCurve_Previews: PreviewProvider {
     }
     
     static var previews: some View {
-        NinesPercentileCurve(histogram: sampleHistogram)
+        InvertedPercentileCurve(histogram: sampleHistogram)
 //            .previewLayout(.fixed(width: 300, height: 300))
             .previewLayout(.sizeThatFits)
     }
