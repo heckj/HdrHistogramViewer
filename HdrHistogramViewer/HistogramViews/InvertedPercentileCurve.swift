@@ -26,7 +26,8 @@ struct InvertedPercentileCurve: View {
                 }
             }
             .chartXScale(
-                domain: .automatic(includesZero: false, reversed: true)
+                domain: .automatic(includesZero: false, reversed: true),
+                type: .log
             )
             .chartXAxis {
                 AxisMarks(values: Converter.invertedPercentileArray(histogram).map{ $0.0 }
@@ -35,9 +36,9 @@ struct InvertedPercentileCurve: View {
 //                    AxisTick(centered: true,
 //                             stroke: StrokeStyle(lineWidth: 2))
 //                    .foregroundStyle(Color.red)
-                    AxisValueLabel {
+                    AxisValueLabel(centered: true, anchor: .top) {
                         if let invertedPercentile = value.as(Double.self) {
-                            Text("\((1 - invertedPercentile)*100)")
+                            Text("\( ( (1 - invertedPercentile)*100.0).formatted(.number.precision(.significantDigits(1...5)))) ")
                         }
                     }
                 }

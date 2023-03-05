@@ -57,7 +57,7 @@ struct Converter {
     }
 
     static func invertedPercentileArray(_ hist: Histogram<UInt>) -> [(Double,UInt64)] {
-        [1.0, 50.0, 90.0, 99.0, 99.9, 99.99, 99.999]
+        [0.0, 50.0, 90.0, 99.0, 99.9, 99.99, 99.999]
         .map { ptile in
             let invertedPercentile = 1.0 - ptile/100.0
             let value = hist.valueAtPercentile(ptile)

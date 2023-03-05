@@ -40,7 +40,7 @@ final class HdrHistogramViewerTests: XCTestCase {
 
         let tupleArray = Converter.invertedPercentileArray(h)
         XCTAssertEqual(tupleArray.count, 7)
-        XCTAssertEqual(tupleArray[0].0, 0.99, accuracy: 0.01)
+        XCTAssertEqual(tupleArray[0].0, 1.0, accuracy: 0.01)
         XCTAssertEqual(tupleArray[1].0, 0.5, accuracy: 0.01)
         XCTAssertEqual(tupleArray[2].0, 0.1, accuracy: 0.01)
         XCTAssertEqual(tupleArray[3].0, 0.01, accuracy: 0.001)
