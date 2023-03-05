@@ -25,7 +25,11 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            InvertedPercentileCurve(histogram: ContentView.sampleHistogram)
+            DistributionView(histogram: document.histogram)
+            HStack {
+                OverallPercentileCurve(histogram: document.histogram)
+                InvertedPercentileCurve(histogram: document.histogram)
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ struct InvertedPercentileCurve: View {
     
     var body: some View {
         VStack {
-            Text("Recorded value \(String(describing: histogram.min...histogram.max)) at percentile of distribution")
+            Text("Value (\(String(describing: histogram.min...histogram.max))) at high percentiles")
             Chart {
                 ForEach(Converter.invertedPercentileArray(histogram), id: \.0) { stat in
                     LineMark(
@@ -33,9 +33,9 @@ struct InvertedPercentileCurve: View {
                 AxisMarks(values: Converter.invertedPercentileArray(histogram).map{ $0.0 }
                 ) { value in
                     AxisGridLine()
-//                    AxisTick(centered: true,
-//                             stroke: StrokeStyle(lineWidth: 2))
-//                    .foregroundStyle(Color.red)
+            //                    AxisTick(centered: true,
+            //                             stroke: StrokeStyle(lineWidth: 2))
+            //                    .foregroundStyle(Color.red)
                     AxisValueLabel(centered: true, anchor: .top) {
                         if let invertedPercentile = value.as(Double.self) {
                             Text("\( ( (1 - invertedPercentile)*100.0).formatted(.number.precision(.significantDigits(1...5)))) ")

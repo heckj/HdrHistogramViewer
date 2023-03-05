@@ -14,7 +14,7 @@ struct OverallPercentileCurve: View {
     
     var body: some View {
         VStack {
-            Text("Recorded value \(String(describing: histogram.min...histogram.max)) at percentile of distribution")
+            Text("Value (\(String(describing: histogram.min...histogram.max))) at percentile of distribution")
             Chart {
                 ForEach(Converter.percentileArray(histogram), id: \.0) { stat in
                     LineMark(

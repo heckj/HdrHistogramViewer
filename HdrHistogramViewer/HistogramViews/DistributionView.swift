@@ -14,15 +14,31 @@ struct DistributionView: View {
     
     var body: some View {
         VStack {
-            Text("Histogram Distribution").font(.caption)
+            Text("Distribution of reported values")
             Chart {
                 ForEach(Converter.linearBuckets(histogram)) { stat in
                     BarMark(
                         x: .value("Value", stat.value),
-                        y: .value("Count", stat.count)
+                        y: .value("Count", stat.count),
+                        width: .fixed(2)
                     )
                 }
             }
+            .chartYAxis(.hidden)
+            .chartXAxis(.hidden)
+//            .chartXAxis {
+//                AxisMarks(values: Converter.linearBuckets(histogram).map({ $0.value })) { value in
+//                    AxisGridLine()
+//                    AxisValueLabel(centered: true, orientation: .vertical
+//                    ) {
+//                        if let val = value.as(Int.self)
+////                            , val % 10 == 0
+//                        {
+//                            Text("\(val)").font(.caption2)
+//                        }
+//                    }
+//                }
+//            }
             .frame(maxHeight: 50)
         }
     }
