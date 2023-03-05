@@ -17,7 +17,11 @@
 		1A05E85129B3DB2C00A05469 /* HdrHistogramViewerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05E85029B3DB2C00A05469 /* HdrHistogramViewerUITestsLaunchTests.swift */; };
 		1A05E85F29B3DBE500A05469 /* Histogram in Frameworks */ = {isa = PBXBuildFile; productRef = 1A05E85E29B3DBE500A05469 /* Histogram */; };
 		1A05E86229B3DFB100A05469 /* ExtrasJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 1A05E86129B3DFB100A05469 /* ExtrasJSON */; };
-		1AA019C329B3FFF100B0BA19 /* PercentileCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA019C229B3FFF100B0BA19 /* PercentileCurve.swift */; };
+		1A60C2C129B416D0000B832F /* DistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60C2C029B416D0000B832F /* DistributionView.swift */; };
+		1A60C2C329B416E5000B832F /* LocalIterationValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60C2C229B416E5000B832F /* LocalIterationValue.swift */; };
+		1A60C2C529B4191C000B832F /* CountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60C2C429B4191C000B832F /* CountsView.swift */; };
+		1A60C2C729B41B7B000B832F /* NinesPercentileCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60C2C629B41B7B000B832F /* NinesPercentileCurve.swift */; };
+		1AA019C329B3FFF100B0BA19 /* OverallPercentileCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA019C229B3FFF100B0BA19 /* OverallPercentileCurve.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +55,11 @@
 		1A05E84A29B3DB2C00A05469 /* HdrHistogramViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HdrHistogramViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A05E84E29B3DB2C00A05469 /* HdrHistogramViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HdrHistogramViewerUITests.swift; sourceTree = "<group>"; };
 		1A05E85029B3DB2C00A05469 /* HdrHistogramViewerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HdrHistogramViewerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		1AA019C229B3FFF100B0BA19 /* PercentileCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentileCurve.swift; sourceTree = "<group>"; };
+		1A60C2C029B416D0000B832F /* DistributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionView.swift; sourceTree = "<group>"; };
+		1A60C2C229B416E5000B832F /* LocalIterationValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalIterationValue.swift; sourceTree = "<group>"; };
+		1A60C2C429B4191C000B832F /* CountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountsView.swift; sourceTree = "<group>"; };
+		1A60C2C629B41B7B000B832F /* NinesPercentileCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NinesPercentileCurve.swift; sourceTree = "<group>"; };
+		1AA019C229B3FFF100B0BA19 /* OverallPercentileCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallPercentileCurve.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +152,11 @@
 		1AA019C129B3FFB400B0BA19 /* HistogramViews */ = {
 			isa = PBXGroup;
 			children = (
-				1AA019C229B3FFF100B0BA19 /* PercentileCurve.swift */,
+				1AA019C229B3FFF100B0BA19 /* OverallPercentileCurve.swift */,
+				1A60C2C029B416D0000B832F /* DistributionView.swift */,
+				1A60C2C229B416E5000B832F /* LocalIterationValue.swift */,
+				1A60C2C429B4191C000B832F /* CountsView.swift */,
+				1A60C2C629B41B7B000B832F /* NinesPercentileCurve.swift */,
 			);
 			path = HistogramViews;
 			sourceTree = "<group>";
@@ -287,8 +299,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AA019C329B3FFF100B0BA19 /* PercentileCurve.swift in Sources */,
+				1AA019C329B3FFF100B0BA19 /* OverallPercentileCurve.swift in Sources */,
+				1A60C2C529B4191C000B832F /* CountsView.swift in Sources */,
+				1A60C2C729B41B7B000B832F /* NinesPercentileCurve.swift in Sources */,
+				1A60C2C329B416E5000B832F /* LocalIterationValue.swift in Sources */,
 				1A05E83229B3DB2B00A05469 /* HdrHistogramViewerDocument.swift in Sources */,
+				1A60C2C129B416D0000B832F /* DistributionView.swift in Sources */,
 				1A05E83029B3DB2B00A05469 /* HdrHistogramViewerApp.swift in Sources */,
 				1A05E83429B3DB2B00A05469 /* ContentView.swift in Sources */,
 			);
