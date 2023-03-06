@@ -12,7 +12,7 @@ import Histogram
 
 extension UTType {
     static var encodedHistogram: UTType {
-        UTType(exportedAs: "com.github.ordo-one.encodedHistogram", conformingTo: .json)
+        UTType(exportedAs: "com.github.ordo-one.encodedHistogram")
     }
 }
 
@@ -21,14 +21,15 @@ struct HdrHistogramViewerDocument: FileDocument {
     let decoder = XJSONDecoder()
     let encoder = XJSONEncoder()
     
-    init(histogram: Histogram<UInt> = Histogram<UInt>(highestTrackableValue: 3_000_000_000)) {
-        self.histogram = histogram
-    }
-
     static var readableContentTypes: [UTType] { [.encodedHistogram, .json] }
+    static var writableContentTypes: [UTType] { [.encodedHistogram] }
 
+    init() {
+        // for creating a whole new document...
+        histogram = Histogram<UInt>(numberOfSignificantValueDigits: .three)
+    }
+    
     init(configuration: ReadConfiguration) throws {
-        
         guard let data = configuration.file.regularFileContents
         else {
             throw CocoaError(.fileReadCorruptFile)
@@ -37,6 +38,9 @@ struct HdrHistogramViewerDocument: FileDocument {
     }
     
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+        print("content type: \(configuration.contentType)")
+        print("preferred filename: \(configuration.existingFile?.preferredFilename ?? "UNKNOWN")")
+        print("filename: \(configuration.existingFile?.filename ?? "UNKNOWN")")
         let data = try encoder.encode(histogram)
         return .init(regularFileWithContents: Data(data))
     }

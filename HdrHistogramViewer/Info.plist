@@ -4,9 +4,13 @@
 <dict>
 	<key>UISupportsDocumentBrowser</key>
 	<true/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 			<key>CFBundleTypeName</key>
 			<string></string>
 			<key>CFBundleTypeRole</key>
@@ -16,22 +20,20 @@
 				<string>com.github.ordo-one.encodedHistogram</string>
 			</array>
 			<key>NSUbiquitousDocumentUserActivityType</key>
-			<string>com.github.ordo-one.encodedHistogram</string>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).encodedHistogramDocument</string>
 		</dict>
 	</array>
-    <key>LSSupportsOpeningDocumentsInPlace</key>
-    <true/>
-    <key>ITSAppUsesNonExemptEncryption</key>
-    <false/>
-    <key>UTExportedTypeDeclarations</key>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
 			<key>UTTypeConformsTo</key>
 			<array>
 				<string>public.json</string>
-                <string>public.content</string>
-                <string>public.data</string>
-            </array>
+				<string>public.content</string>
+				<string>public.data</string>
+			</array>
 			<key>UTTypeDescription</key>
 			<string>Encoded Histogram</string>
 			<key>UTTypeIdentifier</key>
@@ -40,7 +42,7 @@
 			<dict>
 				<key>public.filename-extension</key>
 				<array>
-					<string>.encodedHistogram</string>
+					<string>encodedHistogram</string>
 				</array>
 			</dict>
 		</dict>
