@@ -35,10 +35,6 @@ struct CountsView: View {
             Text("count: \(histogram.totalCount), min: \(histogram.min), max: \(histogram.max)")
             Text("mean: \(histogram.mean), median \(histogram.mean), stddev: \(histogram.stdDeviation)")
             Text("significant digits: \(String(describing: histogram.numberOfSignificantValueDigits))")
-            
-            ForEach(Converter.percentiles(histogram), id: \.percentile) { iterValue in
-                Text("%: \(iterValue.percentile) count: \(iterValue.count), value: \(iterValue.value)")
-            }
         }
     }
     
