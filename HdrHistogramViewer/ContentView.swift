@@ -25,6 +25,8 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            CountsView(histogram: document.histogram)
+//            DiagnosticView(histogram: document.histogram)
             DistributionView(histogram: document.histogram)
             HStack {
                 OverallPercentileCurve(histogram: document.histogram)

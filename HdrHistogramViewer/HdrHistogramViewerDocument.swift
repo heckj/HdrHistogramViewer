@@ -12,7 +12,7 @@ import Histogram
 
 extension UTType {
     static var encodedHistogram: UTType {
-        UTType(importedAs: "com.github.ordo-one.encodedHistogram")
+        UTType(exportedAs: "com.github.ordo-one.encodedHistogram", conformingTo: .json)
     }
 }
 

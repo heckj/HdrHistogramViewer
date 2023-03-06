@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UISupportsDocumentBrowser</key>
+	<true/>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -14,16 +16,22 @@
 				<string>com.github.ordo-one.encodedHistogram</string>
 			</array>
 			<key>NSUbiquitousDocumentUserActivityType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER)..encodedHistogram</string>
+			<string>com.github.ordo-one.encodedHistogram</string>
 		</dict>
 	</array>
-	<key>UTImportedTypeDeclarations</key>
+    <key>LSSupportsOpeningDocumentsInPlace</key>
+    <true/>
+    <key>ITSAppUsesNonExemptEncryption</key>
+    <false/>
+    <key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
 			<key>UTTypeConformsTo</key>
 			<array>
 				<string>public.json</string>
-			</array>
+                <string>public.content</string>
+                <string>public.data</string>
+            </array>
 			<key>UTTypeDescription</key>
 			<string>Encoded Histogram</string>
 			<key>UTTypeIdentifier</key>
@@ -33,7 +41,6 @@
 				<key>public.filename-extension</key>
 				<array>
 					<string>.encodedHistogram</string>
-					<string>.json</string>
 				</array>
 			</dict>
 		</dict>

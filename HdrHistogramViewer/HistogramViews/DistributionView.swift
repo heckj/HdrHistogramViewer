@@ -16,7 +16,7 @@ struct DistributionView: View {
         VStack {
             Text("Distribution of reported values")
             Chart {
-                ForEach(Converter.linearBuckets(histogram)) { stat in
+                ForEach(Converter.linearBuckets(histogram, bucketCount: 10000)) { stat in
                     BarMark(
                         x: .value("Value", stat.value),
                         y: .value("Count", stat.count),
@@ -25,21 +25,13 @@ struct DistributionView: View {
                 }
             }
             .chartYAxis(.hidden)
-            .chartXAxis(.hidden)
-//            .chartXAxis {
-//                AxisMarks(values: Converter.linearBuckets(histogram).map({ $0.value })) { value in
-//                    AxisGridLine()
-//                    AxisValueLabel(centered: true, orientation: .vertical
-//                    ) {
-//                        if let val = value.as(Int.self)
-////                            , val % 10 == 0
-//                        {
-//                            Text("\(val)").font(.caption2)
-//                        }
-//                    }
-//                }
-//            }
+            .chartPlotStyle { plotArea in
+                plotArea
+                    .background(.gray.opacity(0.1))
+                    .border(.blue, width: 1)
+            }
             .frame(maxHeight: 50)
+            .padding()
         }
     }
 }

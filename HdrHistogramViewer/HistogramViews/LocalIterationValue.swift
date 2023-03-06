@@ -65,8 +65,9 @@ struct Converter {
         }
     }
 
-    static func linearBuckets(_ hist: Histogram<UInt>) -> [LocalIterationValue] {
-        hist.linearBucketValues(valueUnitsPerBucket: 1)
+    static func linearBuckets(_ hist: Histogram<UInt>, bucketCount: UInt64 = 1000) -> [LocalIterationValue] {
+        let valuesPerBucket = max(hist.max/bucketCount, 1)
+        return hist.linearBucketValues(valueUnitsPerBucket: valuesPerBucket)
             .map { LocalIterationValue(from: $0) }
     }
 }
