@@ -6,30 +6,29 @@
 //
 
 import Histogram
+import Foundation
 
 struct LocalIterationValue: Hashable, Identifiable {
+    let id: UUID
     let count: UInt
+    let prevValue: UInt64
     let value: UInt64
     let percentile: Double
-    var oneMinusPercentile: Double {
-        1.0 - percentile/100.0
-    }
-    
-    // Identifiable conformance
-    var id: Double {
-        self.percentile
-    }
-    
-    init(count: UInt, value: UInt64, percentile: Double) {
-        self.count = count
-        self.value = value
-        self.percentile = percentile
-    }
+    let percentileLevelIteratedTo: Double
+    let countAddedInThisIterationStep: UInt64
+    let totalCountToThisValue: UInt64
+    let totalValueToThisValue: UInt64
     
     init(from: Histogram<UInt>.IterationValue) {
+        self.id = UUID()
         self.count = from.count
+        self.prevValue = from.prevValue
         self.value = from.value
         self.percentile = from.percentile
+        self.percentileLevelIteratedTo = from.percentileLevelIteratedTo
+        self.countAddedInThisIterationStep = from.countAddedInThisIterationStep
+        self.totalCountToThisValue = from.totalCountToThisValue
+        self.totalValueToThisValue = from.totalValueToThisValue
     }
 }
 

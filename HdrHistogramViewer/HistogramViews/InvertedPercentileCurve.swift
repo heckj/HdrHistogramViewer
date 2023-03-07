@@ -50,22 +50,9 @@ struct InvertedPercentileCurve: View {
     }
 }
 
-struct InvertedPercentileCurve_Previews: PreviewProvider {
-    static var sampleHistogram: Histogram<UInt> {
-        var h = Histogram<UInt>(numberOfSignificantValueDigits: .three)
-        h.record(5)
-        h.record(6)
-        h.record(5)
-        h.record(10)
-        h.record(4)
-        h.record(6)
-        h.record(50)
-        return h
-    }
-    
+struct InvertedPercentileCurve_Previews: PreviewProvider {    
     static var previews: some View {
-        InvertedPercentileCurve(histogram: sampleHistogram)
-//            .previewLayout(.fixed(width: 300, height: 300))
+        InvertedPercentileCurve(histogram: SampleHistogramData.simple)
             .previewLayout(.sizeThatFits)
     }
 }

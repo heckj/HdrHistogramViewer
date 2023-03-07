@@ -18,15 +18,6 @@ final class HdrHistogramViewerTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testDerivedOneMinusPercentile() throws {
-        let x = LocalIterationValue(count: 4, value: 79, percentile: 99.9)
-        
-        XCTAssertEqual(x.oneMinusPercentile, 0.001, accuracy: 0.0001)
-
-        XCTAssertEqual(LocalIterationValue(count: 4, value: 79, percentile: 99.999).oneMinusPercentile, 0.00001, accuracy: 0.00001)
-
-    }
     
     func testInvertedPercentiles() throws {
         var h = Histogram<UInt>(numberOfSignificantValueDigits: .three)

@@ -27,7 +27,10 @@ struct ContentView: View {
         VStack {
             CountsView(histogram: document.histogram)
 //            DiagnosticView(histogram: document.histogram)
-            DistributionView(histogram: document.histogram)
+            Group {
+                DistributionHeatmap(histogram: document.histogram)
+                DistributionView(histogram: document.histogram)
+            }.frame(maxWidth: 400)
             HStack {
                 OverallPercentileCurve(histogram: document.histogram)
                 InvertedPercentileCurve(histogram: document.histogram)

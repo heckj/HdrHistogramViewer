@@ -42,20 +42,13 @@ struct CountsView: View {
 
 
 struct CountsView_Previews: PreviewProvider {
-    static var sampleHistogram: Histogram<UInt> {
-        var h = Histogram<UInt>(numberOfSignificantValueDigits: .three)
-        h.record(5)
-        h.record(6)
-        h.record(5)
-        h.record(10)
-        h.record(4)
-        h.record(6)
-        h.record(50)
-        return h
-    }
-    
     static var previews: some View {
-        CountsView(histogram: sampleHistogram)
-            .previewLayout(.sizeThatFits)
+        VStack {
+            CountsView(histogram: SampleHistogramData.pseudorandom)
+                .previewLayout(.sizeThatFits)
+            
+            CountsView(histogram: SampleHistogramData.simple)
+                .previewLayout(.sizeThatFits)
+        }
     }
 }
