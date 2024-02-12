@@ -15,7 +15,7 @@ struct Workout: Identifiable, Hashable {
     
     static var walkData: [Workout] {
         [
-            .init(day: 0, minutes: 23),
+            .init(day: 0, minutes: 3),
             .init(day: 1, minutes: 45),
             .init(day: 2, minutes: 76),
             .init(day: 3, minutes: 21),
@@ -42,6 +42,7 @@ struct CrashExample: View {
             }
             .chartXScale(domain: .automatic(includesZero: false, reversed: true))
             // ^^ reversed: true crashes the simulator
+            // Crash appears resolved in Xcode 15.3 beta 2, Swift 5.10
             .frame(height: 400)
             .padding()
         }
